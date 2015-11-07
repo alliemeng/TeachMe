@@ -2,6 +2,8 @@ express = require 'express'
 app = express()
 bodyParser = require 'body-parser'
 
+unirest = require 'unirest'
+
 MongoClient = require('mongodb').MongoClient
 ObjectId = require('mongodb').ObjectId
 mongoURL = 'mongodb://localhost:27017/teachme'
@@ -45,14 +47,30 @@ app.get '/users/search', (req, res) ->
   )
 
 app.get '/users/:id/nearby', (req, res) ->
+  response = {}
+  busStopFormatter = (stop) ->
+    {
+      name: stop.name,
+      location: stop.location
+    }
+  busResponseFormatter = (busResp) ->
+    busResp.data.map(busStopFormatter)
+  finish = ->
+    return unless response['bus_stops']? && response['people']?
+    res.send(response)
   MongoClient.connect(mongoURL, (err, db) ->
     users = []
-    console.log("ID: " + req.params.id)
     cursor = db.collection('users').findOne({"_id": ObjectId(req.params.id)}, (err, requestedUser) ->
       if requestedUser == null
         res.end('[]')
         return
       else
+        unirest.get('https://transloc-api-1-2.p.mashape.com/stops.json?agencies=yale&callback=call&geo_area=41.3144767%2C-72.9306981%7C500')
+        .header('X-Mashape-Key', 'WdxhWbE8XWmsh2Uc5SIOvbZOFNZ0p1ym6ecjsnXYoG6WvDLXXN')
+        .header('Accept', 'application/json')
+        .end (result) ->
+          response['bus_stops'] = busResponseFormatter(result.body)
+          finish()
         resCursor = db.collection('users').find({
           "lastLoc": {
             $near: {
@@ -66,7 +84,8 @@ app.get '/users/:id/nearby', (req, res) ->
         })
         resCursor.each (err, doc) ->
           if doc == null
-            res.send(users)
+            response['people'] = users
+            finish()
           else
             users.push(doc)
     )
