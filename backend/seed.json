@@ -5,7 +5,11 @@
         "iOS",
         "Javascript",
         "C"
-    ]
+    ],
+    "lastLoc": {
+        "type": "Point",
+        "coordinates": [41.3144767, -72.9306981]
+    }
 }
 {
     "name": "Allie Meng",
@@ -13,6 +17,10 @@
         "Lifting",
         "Logic",
         "Looking good"
-    ]
+    ],
+    "lastLoc": {
+        "type": "Point",
+        "coordinates": [41.3098349, -72.9275223]
+    }
 }
 
