@@ -1,0 +1,23 @@
+{
+  "name": "TeachMe-Backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "mocha -w --compilers coffee:coffee-script/register"
+  },
+  "author": "Feifan Zhou <feifan@me.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "should": "^7.1.0",
+    "nodemon": "^1.7.0",
+    "mongodb": "2.0.47"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "coffee-script": "^1.10.0",
+    "express": "^4.13.3",
+    "request": "^2.63.0"
+  }
+}
