@@ -25,6 +25,19 @@ app.get '/users', (req, res) ->
       else
         users.push(doc)
   )
+  
+app.get '/users/search', (req, res) ->
+  query = req.query.q
+  res.end('[]') if query.length < 1
+  MongoClient.connect(mongoURL, (err, db) ->
+    users = []
+    cursor = db.collection('users').find({"name": new RegExp('^' + query, 'i')})
+    cursor.each (err, doc) ->
+      if doc == null
+        res.send(users)
+      else
+        users.push(doc)
+  )
 
 app
   .set('port', process.env.PORT || 5000)
