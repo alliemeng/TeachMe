@@ -7,6 +7,10 @@ mongoURL = 'mongodb://localhost:27017/teachme'
 
 app.use(bodyParser.json())
 
+Array.prototype.unique = -> this.filter ((element, index, array) ->
+                if element of this then false else (@[element] = true)
+              ), {}
+
 app.get '/users', (req, res) ->
   MongoClient.connect(mongoURL, (err, db) ->
     if err
@@ -46,11 +50,7 @@ app.get '/skills', (req, res) ->
     cursor.each (err, doc) ->
       if doc == null
         # Make array unique
-        # http://stackoverflow.com/a/26514161/472768
-        uniqueSkills = skills.filter ((element, index, array) ->
-                if element of this then false else (@[element] = true)
-              ), {}
-        res.send(uniqueSkills)
+        res.send(skills.unique())
       else
         skills = skills.concat(doc.skills)
   )
