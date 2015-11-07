@@ -23,4 +23,16 @@
         "coordinates": [41.3098349, -72.9275223]
     }
 }
+{
+    "name": "Haroon Ismail",
+    "skills": [
+        "Designing",
+        "Trolling",
+        "Looking good"
+    ],
+    "lastLoc": {
+        "type": "Point",
+        "coordinates": [38.8812203, -77.0404873]
+    }
+}
 
