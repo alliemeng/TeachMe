@@ -3,6 +3,7 @@ app = express()
 bodyParser = require 'body-parser'
 
 MongoClient = require('mongodb').MongoClient
+ObjectId = require('mongodb').ObjectId
 mongoURL = 'mongodb://localhost:27017/teachme'
 
 app.use(bodyParser.json())
@@ -41,6 +42,34 @@ app.get '/users/search', (req, res) ->
         res.send(users)
       else
         users.push(doc)
+  )
+
+app.get '/users/:id/nearby', (req, res) ->
+  MongoClient.connect(mongoURL, (err, db) ->
+    users = []
+    console.log("ID: " + req.params.id)
+    cursor = db.collection('users').findOne({"_id": ObjectId(req.params.id)}, (err, requestedUser) ->
+      if requestedUser == null
+        res.end('[]')
+        return
+      else
+        resCursor = db.collection('users').find({
+          "lastLoc": {
+            $near: {
+              $geometry: {
+                type: 'Point',
+                coordinates: requestedUser.lastLoc.coordinates
+              },
+              $maxDistance: 1000
+            }
+          }
+        })
+        resCursor.each (err, doc) ->
+          if doc == null
+            res.send(users)
+          else
+            users.push(doc)
+    )
   )
 
 app.get '/skills', (req, res) ->
