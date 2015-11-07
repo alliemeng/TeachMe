@@ -17,6 +17,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[Venmo startWithAppId:@"3108" secret:@"JYwuS4qYF4Fk2pFP3FK9wq9f24x8Ch46" name:@"TeachMe"];
+	if (![Venmo isVenmoAppInstalled]) {
+		[[Venmo sharedInstance] setDefaultTransactionMethod:VENTransactionMethodAPI];
+	}
+	else {
+		[[Venmo sharedInstance] setDefaultTransactionMethod:VENTransactionMethodAppSwitch];
+	}
 
   NSURL *jsCodeLocation;
 
@@ -54,6 +60,16 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+	
+	[[Venmo sharedInstance] requestPermissions:@[VENPermissionMakePayments]
+											 withCompletionHandler:^(BOOL success, NSError *error) {
+												 if (success) {
+													 // :)
+												 }
+												 else {
+													 NSLog(@"Error requesting Venmo permissions");
+												 }
+											 }];
   return YES;
 }
 
