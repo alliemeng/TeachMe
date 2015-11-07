@@ -91,7 +91,8 @@ app.get '/skills', (req, res) ->
     cursor.each (err, doc) ->
       if doc == null
         # Make array unique
-        res.send(skills.unique())
+        uniqueSkills = skills.unique()
+        res.send({skills: uniqueSkills, count: uniqueSkills.length})
       else
         skills = skills.concat(doc.skills)
   )
@@ -109,7 +110,8 @@ app.get '/skills/search', (req, res) ->
         res.end()
         return
       if doc == null
-        res.send(skills.filter((skill) -> skill.match(queryRegex)).unique())
+        uniqueSkills = skills.filter((skill) -> skill.match(queryRegex)).unique()
+        res.send({skills: uniqueSkills, count: uniqueSkills.length})
       else
         skills = skills.concat(doc.skills)
   )
