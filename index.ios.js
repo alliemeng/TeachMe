@@ -17,7 +17,7 @@ var TeachMe = React.createClass({
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Hi Native!
+          Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
