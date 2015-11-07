@@ -4,6 +4,7 @@
 # use_frameworks!
 
 target 'TeachMe' do
+  pod 'Venmo-iOS-SDK', '~>1.3'
 end
 
 target 'TeachMeTests' do
