@@ -39,6 +39,22 @@ app.get '/users/search', (req, res) ->
         users.push(doc)
   )
 
+app.get '/skills', (req, res) ->
+  MongoClient.connect(mongoURL, (err, db) ->
+    skills = []
+    cursor = db.collection('users').find({}, {'skills': true, '_id': false})
+    cursor.each (err, doc) ->
+      if doc == null
+        # Make array unique
+        # http://stackoverflow.com/a/26514161/472768
+        uniqueSkills = skills.filter ((element, index, array) ->
+                if element of this then false else (@[element] = true)
+              ), {}
+        res.send(uniqueSkills)
+      else
+        skills = skills.concat(doc.skills)
+  )
+
 app
   .set('port', process.env.PORT || 5000)
   .listen(app.get('port'), -> 
