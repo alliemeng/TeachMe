@@ -72,6 +72,18 @@ app.get '/users/:id/nearby', (req, res) ->
     )
   )
 
+app.patch '/users/:id', (req, res) ->
+  console.log('Incoming point: ' + req.body.location);
+  MongoClient.connect(mongoURL, (err, db) ->
+    db.collection('users').update(
+      { '_id': ObjectId(req.params.id) },
+      { $set: { 'lastLoc.coordinates': req.body.location } },
+      (err, count, status) ->
+        res.end('' + count);
+    )
+  )
+            
+
 app.get '/skills', (req, res) ->
   MongoClient.connect(mongoURL, (err, db) ->
     skills = []
