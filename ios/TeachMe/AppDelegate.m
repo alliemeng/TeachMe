@@ -10,11 +10,13 @@
 #import "AppDelegate.h"
 
 #import "RCTRootView.h"
+#import <Venmo-iOS-SDK/Venmo.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[Venmo startWithAppId:@"3108" secret:@"JYwuS4qYF4Fk2pFP3FK9wq9f24x8Ch46" name:@"TeachMe"];
   NSURL *jsCodeLocation;
 
   /**
@@ -52,6 +54,12 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+	if ([[Venmo sharedInstance] handleOpenURL:url])
+		return YES;
+	return NO;
 }
 
 @end
