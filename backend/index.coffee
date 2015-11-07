@@ -55,6 +55,25 @@ app.get '/skills', (req, res) ->
         skills = skills.concat(doc.skills)
   )
 
+app.get '/skills/search', (req, res) ->
+  query = req.query.q
+  res.end('[]') if query.length < 1
+  queryRegex = new RegExp('^' + query, 'i')
+  MongoClient.connect(mongoURL, (err, db) ->
+    skills = []
+    cursor = db.collection('users').find({"skills": { $in: [queryRegex] }})
+    cursor.each (err, doc) ->
+      if err
+        console.error(err)
+        res.end()
+        return
+      if doc == null
+        res.send(skills.filter((skill) -> skill.match(queryRegex)).unique())
+      else
+        skills = skills.concat(doc.skills)
+  )
+        
+
 app
   .set('port', process.env.PORT || 5000)
   .listen(app.get('port'), -> 
