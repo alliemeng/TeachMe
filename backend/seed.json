@@ -1,12 +1,13 @@
 [{
 "name": "Feifan Zhou",
 "skills": [
-{"name": "Ruby", "suggestedPoints": "16", "upvotes": "15", "image": "https://cdn.tutsplus.com/net/uploads/legacy/417_ruby/images/ruby.png"},
-{"name": "iOS", "suggestedPoints": "19", "upvotes": "7", "image": "https://upload.wikimedia.org/wikipedia/en/0/0c/Xcode_icon.png"},
-{"name": "Javascript", "suggestedPoints": "15", "upvotes": "10", "image": "http://cursohtml5js.com/js.png"},
-{"name": "C", "suggestedPoints": "24", "upvotes": "10", "image": "http://41.media.tumblr.com/ec1e2865d914521ded388fbcc447791c/tumblr_inline_nu6vqczp8y1tbt8rv_400.png"}
+{"name": "Ruby", "suggestedPoints": "18", "upvotes": "22", "image": "https://cdn.tutsplus.com/net/uploads/legacy/417_ruby/images/ruby.png"},
+{"name": "iOS", "suggestedPoints": "24", "upvotes": "6", "image": "https://upload.wikimedia.org/wikipedia/en/0/0c/Xcode_icon.png"},
+{"name": "Javascript", "suggestedPoints": "10", "upvotes": "11", "image": "http://cursohtml5js.com/js.png"},
+{"name": "C", "suggestedPoints": "20", "upvotes": "13", "image": "http://41.media.tumblr.com/ec1e2865d914521ded388fbcc447791c/tumblr_inline_nu6vqczp8y1tbt8rv_400.png"}
 ],
 "imageID": "100001324728942",
+"venmoEmail": "feifan@me.com",
 "lastLoc": {
 "type": "Point",
 "coordinates": [41.3144767, -72.9306981]
@@ -15,11 +16,12 @@
 {
 "name": "Allie Meng",
 "skills": [
-{"name": "Lifting", "suggestedPoints": "11", "upvotes": "5", "image": "http://www.teleread.com/wp-content/uploads/2013/03/barbell.jpg"},
-{"name": "Logic", "suggestedPoints": "12", "upvotes": "10", "image": "http://funbuzzindia.com/wp-content/uploads/2014/11/Logical-Thinking-Head.jpg"},
-{"name": "Looking good", "suggestedPoints": "13", "upvotes": "5", "image": "http://www.imprevu.us/wp-content/uploads/2015/10/Fashion-And-Modern-Youth.jpg"}
+{"name": "Lifting", "suggestedPoints": "11", "upvotes": "9", "image": "http://www.teleread.com/wp-content/uploads/2013/03/barbell.jpg"},
+{"name": "Logic", "suggestedPoints": "21", "upvotes": "10", "image": "http://funbuzzindia.com/wp-content/uploads/2014/11/Logical-Thinking-Head.jpg"},
+{"name": "Looking good", "suggestedPoints": "14", "upvotes": "7", "image": "http://www.imprevu.us/wp-content/uploads/2015/10/Fashion-And-Modern-Youth.jpg"}
 ],
 "imageID": "1206565055",
+"venmoEmail": "awm79@cornell.edu",
 "lastLoc": {
 "type": "Point",
 "coordinates": [41.3098349, -72.9275223]
@@ -28,14 +30,28 @@
 {
 "name": "Haroon Ismail",
 "skills": [
-{"name": "Designing", "suggestedPoints": "24", "upvotes": "8", "image": "http://ecx.images-amazon.com/images/I/51jxBzU40uL._SL1000_.jpg"},
-{"name": "Trolling", "suggestedPoints": "11", "upvotes": "66", "image": "http://img3.wikia.nocookie.net/__cb20120826123355/vssaxtonhale/images/c/c2/Troll-face.png"},
-{"name": "Looking good", "suggestedPoints": "13", "upvotes": "5", "image": "http://www.imprevu.us/wp-content/uploads/2015/10/Fashion-And-Modern-Youth.jpg"}
+{"name": "Designing", "suggestedPoints": "21", "upvotes": "6", "image": "http://ecx.images-amazon.com/images/I/51jxBzU40uL._SL1000_.jpg"},
+{"name": "Trolling", "suggestedPoints": "6", "upvotes": "68", "image": "http://img3.wikia.nocookie.net/__cb20120826123355/vssaxtonhale/images/c/c2/Troll-face.png"},
+{"name": "Looking good", "suggestedPoints": "14", "upvotes": "7", "image": "http://www.imprevu.us/wp-content/uploads/2015/10/Fashion-And-Modern-Youth.jpg"}
 ],
 "imageID": "1313413656",
+"venmoEmail": "hoi2@cornell.edu",
 "lastLoc": {
 "type": "Point",
 "coordinates": [38.8812203, -77.0404873]
+}
+},
+{
+"name": "Jordan Dotzel",
+"skills": [
+{"name": "C", "suggestedPoints": "20", "upvotes": "13", "image": "http://41.media.tumblr.com/ec1e2865d914521ded388fbcc447791c/tumblr_inline_nu6vqczp8y1tbt8rv_400.png"},
+{"name": "Physics", "suggestedPoints": "5", "upvotes": "10", "image": "http://www.norwellschools.org/cms/lib02/MA01001453/Centricity/Domain/63/Physics.jpeg"}
+],
+"imageID": "100001839030433",
+"venmoEmail": "",
+"lastLoc": {
+"type": "Point",
+"coordinates": [42.442318, -76.5158845]
 }
 }
 ]
