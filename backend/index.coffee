@@ -134,7 +134,70 @@ app.get '/skills/search', (req, res) ->
       else
         skills = skills.concat(doc.skills.map((skill) -> skill.name))
   )
-        
+
+chatMatcher = (uid1, uid2) ->
+  { 'members': { $all: [uid1, uid2] } }
+app.post '/messages/:targetID', (req, res) ->
+  senderID = req.body.senderID;
+  targetID = req.params.targetID;
+  message = {
+    senderID: senderID,
+    body: req.body.message,
+    type: req.body.type,
+    sent: new Date()
+  }
+  MongoClient.connect(mongoURL, (err, db) ->
+    db.collection('chats').findOne(
+      chatMatcher(senderID, targetID),
+      (err, chat) ->
+        if err
+          console.error('Error finding existing chat: ' + chat);
+          res.end('{}')
+          return
+        if chat
+          console.log('Updating');
+          db.collection('chats').update(
+            chatMatcher(senderID, targetID),
+            { $push: { messages: message } },
+            (err, count, status) ->
+              if err
+                console.error('Error updating chat: ' + err)
+              else
+                res.send(count)
+          )
+        else
+          chat = {
+            messages: [message],
+            members: [senderID, targetID]
+          }
+          db.collection('chats').insert(
+            chat,
+            (err, count, status) ->
+              if err
+                console.error('Error saving message: ' + err)
+              else
+                res.send(count)
+          )
+    )
+  )
+
+app.get '/messages/:readerID/:targetID', (req, res) ->
+  readerID = req.params.readerID;
+  targetID = req.params.targetID;
+  MongoClient.connect(mongoURL, (err, db) ->
+    db.collection('chats').findOne(
+      chatMatcher(readerID, targetID),
+      (err, chat) ->
+        console.log('Chat: ' + JSON.stringify(chat))
+        console.log('Error: ' + err)
+        if err
+          console.error('Error finding existing chat: ' + chat)
+          res.end('{}')
+          return
+        else
+          res.send(chat)
+    )
+  )
 
 app
   .set('port', process.env.PORT || 5000)

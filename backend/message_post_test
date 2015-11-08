@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d '{"senderID": "563eb7ffd7cf6befcc721e0b", "message": "Hello world", "type": "text"}' "http://localhost:5000/messages/563eb7ffd7cf6befcc721e0c"
