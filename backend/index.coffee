@@ -106,14 +106,14 @@ app.patch '/users/:id', (req, res) ->
 app.get '/skills', (req, res) ->
   MongoClient.connect(mongoURL, (err, db) ->
     skills = []
-    cursor = db.collection('users').find({}, {'skills': true, '_id': false})
+    cursor = db.collection('users').find({}, {'skills.name': true, '_id': false})
     cursor.each (err, doc) ->
       if doc == null
         # Make array unique
         uniqueSkills = skills.unique()
         res.send({skills: uniqueSkills, count: uniqueSkills.length})
       else
-        skills = skills.concat(doc.skills)
+        skills = skills.concat(doc.skills.map((skill) -> skill.name))
   )
 
 app.get '/skills/search', (req, res) ->
@@ -122,7 +122,7 @@ app.get '/skills/search', (req, res) ->
   queryRegex = new RegExp('^' + query, 'i')
   MongoClient.connect(mongoURL, (err, db) ->
     skills = []
-    cursor = db.collection('users').find({"skills": { $in: [queryRegex] }})
+    cursor = db.collection('users').find({"skills.name": { $in: [queryRegex] }})
     cursor.each (err, doc) ->
       if err
         console.error(err)
@@ -132,7 +132,7 @@ app.get '/skills/search', (req, res) ->
         uniqueSkills = skills.filter((skill) -> skill.match(queryRegex)).unique()
         res.send({skills: uniqueSkills, count: uniqueSkills.length})
       else
-        skills = skills.concat(doc.skills)
+        skills = skills.concat(doc.skills.map((skill) -> skill.name))
   )
         
 

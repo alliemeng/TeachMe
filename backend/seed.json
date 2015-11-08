@@ -1,38 +1,38 @@
-{
+[{
     "name": "Feifan Zhou",
     "skills": [
-        "Ruby",
-        "iOS",
-        "Javascript",
-        "C"
+        {"name": "Ruby", "suggestedPoints": 15, "upvotes": 20},
+        {"name": "iOS", "suggestedPoints": 20, "upvotes": 8},
+        {"name": "Javascript", "suggestedPoints": 14, "upvotes": 11},
+        {"name": "C", "suggestedPoints": 22, "upvotes": 9}
     ],
     "lastLoc": {
         "type": "Point",
         "coordinates": [41.3144767, -72.9306981]
     }
-}
+},
 {
     "name": "Allie Meng",
     "skills": [
-        "Lifting",
-        "Logic",
-        "Looking good"
+        {"name": "Lifting", "suggestedPoints": 15, "upvotes": 7},
+        {"name": "Logic", "suggestedPoints": 18, "upvotes": 11},
+        {"name": "Looking good", "suggestedPoints": 22, "upvotes": 6}
     ],
     "lastLoc": {
         "type": "Point",
         "coordinates": [41.3098349, -72.9275223]
     }
-}
+},
 {
     "name": "Haroon Ismail",
     "skills": [
-        "Designing",
-        "Trolling",
-        "Looking good"
+        {"name": "Designing", "suggestedPoints": 20, "upvotes": 10},
+        {"name": "Trolling", "suggestedPoints": 10, "upvotes": 69},
+        {"name": "Looking good", "suggestedPoints": 18, "upvotes": 8}
     ],
     "lastLoc": {
         "type": "Point",
         "coordinates": [38.8812203, -77.0404873]
     }
-}
+}]
 
