@@ -1,38 +1,38 @@
 [{
-    "name": "Feifan Zhou",
-    "skills": [
-        {"name": "Ruby", "suggestedPoints": 15, "upvotes": 20},
-        {"name": "iOS", "suggestedPoints": 20, "upvotes": 8},
-        {"name": "Javascript", "suggestedPoints": 14, "upvotes": 11},
-        {"name": "C", "suggestedPoints": 22, "upvotes": 9}
-    ],
-    "lastLoc": {
-        "type": "Point",
-        "coordinates": [41.3144767, -72.9306981]
-    }
+"name": "Feifan Zhou",
+"skills": [
+{"name": "Ruby", "suggestedPoints": "10", "upvotes": "24", "image": "https://cdn.tutsplus.com/net/uploads/legacy/417_ruby/images/ruby.png"},
+{"name": "iOS", "suggestedPoints": "16", "upvotes": "8", "image": "https://upload.wikimedia.org/wikipedia/en/0/0c/Xcode_icon.png"},
+{"name": "Javascript", "suggestedPoints": "12", "upvotes": "12", "image": "http://cursohtml5js.com/js.png"},
+{"name": "C", "suggestedPoints": "24", "upvotes": "13", "image": "http://41.media.tumblr.com/ec1e2865d914521ded388fbcc447791c/tumblr_inline_nu6vqczp8y1tbt8rv_400.png"}
+],
+"lastLoc": {
+"type": "Point",
+"coordinates": [41.3144767, -72.9306981]
+}
 },
 {
-    "name": "Allie Meng",
-    "skills": [
-        {"name": "Lifting", "suggestedPoints": 15, "upvotes": 7},
-        {"name": "Logic", "suggestedPoints": 18, "upvotes": 11},
-        {"name": "Looking good", "suggestedPoints": 22, "upvotes": 6}
-    ],
-    "lastLoc": {
-        "type": "Point",
-        "coordinates": [41.3098349, -72.9275223]
-    }
+"name": "Allie Meng",
+"skills": [
+{"name": "Lifting", "suggestedPoints": "17", "upvotes": "5", "image": "http://www.teleread.com/wp-content/uploads/2013/03/barbell.jpg"},
+{"name": "Logic", "suggestedPoints": "16", "upvotes": "10", "image": "http://funbuzzindia.com/wp-content/uploads/2014/11/Logical-Thinking-Head.jpg"},
+{"name": "Looking good", "suggestedPoints": "12", "upvotes": "3", "image": "http://www.imprevu.us/wp-content/uploads/2015/10/Fashion-And-Modern-Youth.jpg"}
+],
+"lastLoc": {
+"type": "Point",
+"coordinates": [41.3098349, -72.9275223]
+}
 },
 {
-    "name": "Haroon Ismail",
-    "skills": [
-        {"name": "Designing", "suggestedPoints": 20, "upvotes": 10},
-        {"name": "Trolling", "suggestedPoints": 10, "upvotes": 69},
-        {"name": "Looking good", "suggestedPoints": 18, "upvotes": 8}
-    ],
-    "lastLoc": {
-        "type": "Point",
-        "coordinates": [38.8812203, -77.0404873]
-    }
-}]
-
+"name": "Haroon Ismail",
+"skills": [
+{"name": "Designing", "suggestedPoints": "24", "upvotes": "8", "image": "http://ecx.images-amazon.com/images/I/51jxBzU40uL._SL1000_.jpg"},
+{"name": "Trolling", "suggestedPoints": "5", "upvotes": "62", "image": "http://img3.wikia.nocookie.net/__cb20120826123355/vssaxtonhale/images/c/c2/Troll-face.png"},
+{"name": "Looking good", "suggestedPoints": "12", "upvotes": "3", "image": "http://www.imprevu.us/wp-content/uploads/2015/10/Fashion-And-Modern-Youth.jpg"}
+],
+"lastLoc": {
+"type": "Point",
+"coordinates": [38.8812203, -77.0404873]
+}
+}
+]
