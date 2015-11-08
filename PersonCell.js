@@ -87,16 +87,16 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent'
   },
   token_good: {
-    backgroundColor: '#EEE',
-    borderColor: '#AAA'
+    backgroundColor: 'rgba(200, 200, 200, 0.5)',
+    borderColor: 'rgba(200, 200, 200, 1.0)'
   },
   token_great: {
     borderColor: 'rgba(47, 213, 110, 1.0)',
-    backgroundColor: 'rgba(47, 213, 110, 0.2)'
+    backgroundColor: 'rgba(47, 213, 110, 0.5)'
   },
   token_excellent: {
     borderColor: 'rgba(90, 190, 246, 1.0)',
-    backgroundColor: 'rgba(90, 190, 246, 0.2)'
+    backgroundColor: 'rgba(90, 190, 246, 0.5)'
   },
   tokenText: {
     paddingLeft: 4,
@@ -131,16 +131,17 @@ var styles = StyleSheet.create({
     textAlign: 'center',
   },
   thumbnail: {
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
   },
   listView: {
     paddingTop: 20,
     backgroundColor: 'white',
   },
   name: {
+    fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 4
+    marginBottom: 8
   },
   cellImage: {
 
