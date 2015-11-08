@@ -140,46 +140,52 @@ chatMatcher = (uid1, uid2) ->
 app.post '/messages/:targetID', (req, res) ->
   senderID = req.body.senderID;
   targetID = req.params.targetID;
+  body = req.body.message;
   message = {
     senderID: senderID,
-    body: req.body.message,
+    body: body,
     type: req.body.type,
     sent: new Date()
   }
-  MongoClient.connect(mongoURL, (err, db) ->
-    db.collection('chats').findOne(
-      chatMatcher(senderID, targetID),
-      (err, chat) ->
-        if err
-          console.error('Error finding existing chat: ' + chat);
-          res.end('{}')
-          return
-        if chat
-          console.log('Updating');
-          db.collection('chats').update(
-            chatMatcher(senderID, targetID),
-            { $push: { messages: message } },
-            (err, count, status) ->
-              if err
-                console.error('Error updating chat: ' + err)
-              else
-                res.send(count)
-          )
-        else
-          chat = {
-            messages: [message],
-            members: [senderID, targetID]
-          }
-          db.collection('chats').insert(
-            chat,
-            (err, count, status) ->
-              if err
-                console.error('Error saving message: ' + err)
-              else
-                res.send(count)
-          )
-    )
-  )
+  unirest.post("https://api.havenondemand.com/1/api/sync/analyzesentiment/v1")
+         .send(["text=" + body, 'apikey=daacc338-92a5-4129-92b0-e92245c8243f'].join('&'))
+         .end (result) ->
+               console.log('Sentiment: ' + JSON.stringify(result))
+               message['sentiment'] = result.body.aggregate.score
+               MongoClient.connect(mongoURL, (err, db) ->
+                 db.collection('chats').findOne(
+                   chatMatcher(senderID, targetID),
+                   (err, chat) ->
+                     if err
+                       console.error('Error finding existing chat: ' + chat);
+                       res.end('{}')
+                       return
+                     if chat
+                       console.log('Updating');
+                       db.collection('chats').update(
+                         chatMatcher(senderID, targetID),
+                         { $push: { messages: message } },
+                         (err, count, status) ->
+                           if err
+                             console.error('Error updating chat: ' + err)
+                           else
+                             res.send(count)
+                       )
+                     else
+                       chat = {
+                         messages: [message],
+                         members: [senderID, targetID]
+                       }
+                       db.collection('chats').insert(
+                         chat,
+                         (err, count, status) ->
+                           if err
+                             console.error('Error saving message: ' + err)
+                           else
+                             res.send(count)
+                       )
+                 )
+               )
 
 app.get '/messages/:readerID/:targetID', (req, res) ->
   readerID = req.params.readerID;
