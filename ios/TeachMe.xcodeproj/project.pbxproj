@@ -23,6 +23,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		3D81E0291BEE44CC00E8F5C1 /* VenmoBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D81E0281BEE44CC00E8F5C1 /* VenmoBridge.m */; };
 		62791199FBF5C742419FE046 /* libPods-TeachMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE91A8A8972CB3C03AB643AB /* libPods-TeachMe.a */; };
+		7EA0E32B1BEF778E009D0629 /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA0E32A1BEF776E009D0629 /* libRNBlur.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTLinking;
 		};
+		7EA0E3291BEF776E009D0629 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EA0E31B1BEF776E009D0629 /* RNBlur.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A68BD7BC1BC31318005F02DF;
+			remoteInfo = RNBlur;
+		};
 		832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */;
@@ -129,6 +137,7 @@
 		3D81E0271BEE44CC00E8F5C1 /* VenmoBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VenmoBridge.h; path = TeachMe/VenmoBridge.h; sourceTree = "<group>"; };
 		3D81E0281BEE44CC00E8F5C1 /* VenmoBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VenmoBridge.m; path = TeachMe/VenmoBridge.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7EA0E31B1BEF776E009D0629 /* RNBlur.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		A7A9EF16F6D892B083CCF9A5 /* Pods-TeachMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeachMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeachMe/Pods-TeachMe.release.xcconfig"; sourceTree = "<group>"; };
 		AEBE39436FE9E901C8DB95E0 /* Pods-TeachMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeachMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeachMe/Pods-TeachMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA0E32B1BEF778E009D0629 /* libRNBlur.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -277,6 +287,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7EA0E31C1BEF776E009D0629 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EA0E32A1BEF776E009D0629 /* libRNBlur.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		81879B01DBBCCCB3D6D1F66D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +307,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7EA0E31B1BEF776E009D0629 /* RNBlur.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -443,6 +462,10 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
+				{
+					ProductGroup = 7EA0E31C1BEF776E009D0629 /* Products */;
+					ProjectRef = 7EA0E31B1BEF776E009D0629 /* RNBlur.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -514,6 +537,13 @@
 			fileType = archive.ar;
 			path = libRCTLinking.a;
 			remoteRef = 78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EA0E32A1BEF776E009D0629 /* libRNBlur.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBlur.a;
+			remoteRef = 7EA0E3291BEF776E009D0629 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		832341B51AAA6A8300B99B32 /* libRCTText.a */ = {
