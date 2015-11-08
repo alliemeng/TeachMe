@@ -5,6 +5,8 @@
 'use strict';
 
 var React = require('react-native');
+var PersonList = require('PersonList');
+
 var {
   AppRegistry,
   Settings,
@@ -25,8 +27,8 @@ var TeachMe = React.createClass({
       <NavigatorIOS
         style={styles.container}
         initialRoute={{
-          title: '',
-          component: SearchScreen,
+          title: 'Nearby',
+          component: PersonList,
           tintColor: "orange",
           rightButtonTitle: "Messages",
           onRightButtonPress: () => {
@@ -39,7 +41,6 @@ var TeachMe = React.createClass({
           onLeftButtonPress: () => {},
         }}
       />
-    //View> </View>
     );
   }
 });

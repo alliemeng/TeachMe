@@ -15,9 +15,9 @@ var skills = {
 };
 
 var people = [
-    {'name': 'Feifan Zhou', 'skills': ['Ruby', 'iOS', 'Javascript', 'C'], 'location': [41.3144767, -72.9306981]},
-    {'name': 'Allie Meng', 'skills': ['Lifting', 'Logic', 'Looking good'], 'location': [41.3098349, -72.9275223]},
-    {'name': 'Haroon Ismail', 'skills': ['Designing', 'Trolling', 'Looking good'], 'location': [38.8812203, -77.0404873]}
+    {'name': 'Feifan Zhou', 'skills': ['Ruby', 'iOS', 'Javascript', 'C'], 'location': [41.3144767, -72.9306981], 'imageID': '100001324728942'},
+    {'name': 'Allie Meng', 'skills': ['Lifting', 'Logic', 'Looking good'], 'location': [41.3098349, -72.9275223], 'imageID': '1206565055'},
+    {'name': 'Haroon Ismail', 'skills': ['Designing', 'Trolling', 'Looking good'], 'location': [38.8812203, -77.0404873], 'imageID': '1313413656'}
 ];
 
 var output = '';
@@ -35,6 +35,7 @@ people.forEach(function(person, personIndex) {
 	output += "\n";
     });
     output += '],' + "\n";
+    output += '"imageID": "' + person.imageID + '",' + "\n";
     output += '"lastLoc": {' + "\n";
     output += '"type": "Point",' + "\n";
     output += '"coordinates": [' + person.location[0] + ', ' + person.location[1] + ']' + "\n";

@@ -17,7 +17,7 @@ Array.prototype.unique = -> this.filter ((element, index, array) ->
 app.get '/users', (req, res) ->
   MongoClient.connect(mongoURL, (err, db) ->
     if err
-      console.err(err)
+      console.error(err)
       res.end()
       return
     users = []
