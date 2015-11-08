@@ -19,6 +19,7 @@ var {
 
 //import type { NavigationContext } from 'NavigationContext';
 var SearchScreen = require('./SearchScreen');
+var Messenger = require('Messenger');
 
 var TeachMe = React.createClass({
   render: function() {
@@ -31,16 +32,10 @@ var TeachMe = React.createClass({
           tintColor: "orange",
           rightButtonTitle: "Messages",
           onRightButtonPress: () => {
-                AlertIOS.alert(
-                  'Bar Button Action',
-                  'Recognized a tap on the bar button icon',
-                  [
-                    {
-                      text: 'OK',
-                      onPress: () => console.log('Tapped OK'),
-                    },
-                  ]
-                );
+            this.props.navigator.push({
+            title: 'messenger',
+            component: Messenger,
+            });
               },
           leftButtonTitle: "Settings",
           onLeftButtonPress: () => {},
