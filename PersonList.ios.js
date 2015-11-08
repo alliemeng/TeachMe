@@ -98,7 +98,7 @@ var styles = StyleSheet.create({
     textAlign: 'center'
   },
   listContent: {
-    marginTop: 20
+    marginTop: 64
   },
   separator: {
     height: 2,
